@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ExcelController;
 use App\Http\Controllers\UploadController;
 use Illuminate\Support\Facades\Route;
 
@@ -17,6 +18,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::post('/upload-excel', [ExcelController::class, 'store']);
 
 Route::post('/upload', [UploadController::class, 'process']);
 Route::delete('/upload', [UploadController::class, 'destroy']);

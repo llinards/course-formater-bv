@@ -11,16 +11,8 @@ class UploadController extends Controller
     public function process(Request $request): string
     {
         $files = $request->allFiles();
-
-        if (empty($files)) {
-            abort(422, 'No files were uploaded.');
-        }
-
         $requestKey = array_key_first($files);
-
-        $file = is_array($request->input($requestKey))
-            ? $request->file($requestKey)[0]
-            : $request->file($requestKey);
+        $file = $request->file($requestKey);
 
         return $file->store(
             path: 'tmp'

@@ -1,3 +1,6 @@
-<div>
-    <!-- If you do not have a consistent goal in life, you can not live it in a consistent way. - Marcus Aurelius -->
+<div class="alert alert-danger" role="alert">
+    @foreach($errors->all() as $error)
+        <p>{{ $error }}</p>
+    @endforeach
 </div>
+
