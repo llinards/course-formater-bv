@@ -15,22 +15,27 @@
 <div class="container mt-5">
     <div class="row justify-content-center">
         <div class="col-10">
-            <h4>Excel</h4>
+            <h2>Excel</h2>
             @if($errors->any())
                 <x-alert-messages :errors="$errors"/>
             @endif
             <form action="/upload-excel" method="POST" enctype="multipart/form-data">
                 @csrf
-                <input id="excel-upload" name="excel" type="file"/>
-                <button type="submit" class="btn btn-primary">Konvertēt</button>
+                <div class="d-flex align-content-center">
+                    <div class="input-group mx-1">
+                        <label class="input-group-text" for="inputGroupFile01">Upload</label>
+                        <input name="excel" class="form-control" type="file"/>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Konvertēt</button>
+                </div>
             </form>
         </div>
     </div>
     <div class="row mt-5 justify-content-center">
         <div class="col-10">
-            <h4>HTML</h4>
+            <h2>HTML</h2>
             <div>
-                
+
             </div>
         </div>
     </div>

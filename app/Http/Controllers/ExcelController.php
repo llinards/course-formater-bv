@@ -9,13 +9,13 @@ use Maatwebsite\Excel\Excel;
 
 class ExcelController extends Controller
 {
-    public function store(Request $data): Request
+    public function store(Request $data)
     {
         $data->validate([
             'excel' => 'required'
         ]);
         try {
-            return Excel::import(new CoursesImport(), storage_path('public/'.$data->file('excel')));
+            return $data->file('excel')->storeAs('public', 'excel.xlsx');
         } catch (\Exception $e) {
             return back()->with('error', $e->getMessage());
         }
