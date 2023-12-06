@@ -12,5 +12,17 @@
     @vite(['resources/js/app.js', 'resources/css/app.scss'])
 </head>
 <body class="antialiased">
+<div class="container">
+    <div class="row">
+        <div class="col-10">
+            <h4>Pievieno Excel failu</h4>
+            <form action="/upload" method="POST" enctype="multipart/form-data">
+                @csrf
+                <input id="excel-upload" type="file"/>
+                <button type="submit" class="btn btn-success">Konvertēt</button>
+            </form>
+        </div>
+    </div>
+</div>
 </body>
 </html>
